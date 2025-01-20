@@ -12,11 +12,11 @@ const TodaysTasks = () => {
   useEffect(() => {
     // const savedTasks = JSON.parse(localStorage.getItem("tasks"))
     // setTasks(savedTasks)
-    // console.log(savedTasks)
+    console.log(tasks)
     const filteredTasks = tasks.filter((task) => task.status == "New");
     setTodayTasks([...todayTasks, ...filteredTasks]);
-    setLoading(false);
-  }, []);
+    //setLoading(false);
+  }, [tasks]);
 
   const updateTaskStatus = (taskId, status) => {
     setTasks(tasks.filter(task => task.id == taskId ? {...task, status:status} : task))

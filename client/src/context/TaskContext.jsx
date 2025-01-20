@@ -4,7 +4,7 @@ import { getAllTasks } from '../api/tasks'
 export const TaskContext = createContext()
 
 const TaskContextProvider = ({children}) => {
-    const [tasks,setTasks] = useState(null)
+    const [tasks,setTasks] = useState([])
     const [loading,setLoading] = useState(true)
     const [error,setError] = useState("")
 

@@ -6,12 +6,16 @@ import connectDB from './config/db.js'
 import taskRouter from './routes/taskRoutes.js'
 import userRouter from './routes/userRoutes.js'
 
-const app = express()
 dotenv.config()
-connectDB()
+
+
+const app = express()
+app.use(cors());
 
 app.use(cors());
 app.use(express.json())
+
+connectDB()
 
 app.use("/api/tasks", taskRouter)
 app.use("/api/users", userRouter)
