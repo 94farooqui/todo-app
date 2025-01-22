@@ -3,6 +3,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import connectDB from './config/db.js'
 
+import authRouter from './routes/authRoutes.js'
 import taskRouter from './routes/taskRoutes.js'
 import userRouter from './routes/userRoutes.js'
 
@@ -16,7 +17,7 @@ app.use(cors());
 app.use(express.json())
 
 connectDB()
-
+app.use("/api/auth", authRouter);
 app.use("/api/tasks", taskRouter)
 app.use("/api/users", userRouter)
 
