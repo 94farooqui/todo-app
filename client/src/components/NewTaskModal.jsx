@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import useTasks from "../hooks/useTasks";
+import { IoClose } from "react-icons/io5";
 
-const NewTaskModal = () => {
-      const {addTask } = useTasks();
+const defaultTask = {
+  title: "",
+  description: "",
+  status: "New",
+};
+
+
+const NewTaskModal = ({ setShowNewTaskModal }) => {
+  const { addTask } = useTasks();
+  const [newTask, setNewTask] = useState(defaultTask);
+  const [taskLoading, setTaskLoading] = useState(false);
 
   const handleAddTask = async (e) => {
     e.preventDefault();
