@@ -2,27 +2,25 @@ import React, { useContext, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import TaskContextProvider from "../context/TaskContext";
+import Home from "../pages/Home";
+import Navbar from "../components/Navbar";
 
 const RootLayout = () => {
   const navigate = useNavigate();
-  const { user, authLoading } = useContext(AuthContext);
 
-  useEffect(() => {
-    if (!user) {
-      navigate("/");
-    }
-  }, [authLoading]);
+  // useEffect(() => {
 
-  if (authLoading) {
-    return <p>Loading...</p>;
-  }
+  //   console.log("User in Root Layout", user)
+  //   if (!user) {
+  //     navigate("/");
+  //   }
+  // }, []);
 
   return (
-    <TaskContextProvider>
-      <div className="w-[1200px] mx-auto py-12">
-        <Outlet />
-      </div>
-    </TaskContextProvider>
+    <div>
+     
+      <Outlet />
+    </div>
   );
 };
 

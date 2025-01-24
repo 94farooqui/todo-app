@@ -1,10 +1,11 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import bcrypt from "bcrypt";
 
 const userSchema = new mongoose.Schema({
   fullname: String,
   email: String,
   password: String,
+  tasks: [{ type: Schema.Types.ObjectId, ref: "Task"}],
   profile: {
     fullName: { type: String },
     bio: { type: String },

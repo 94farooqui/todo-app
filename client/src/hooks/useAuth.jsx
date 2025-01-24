@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 const useAuth = () => {
   const { setToken } = useContext(AuthContext);
 
-  const login = async (formData) => {
+  const userLogin = async (formData) => {
     console.log("From Cutsom hook", formData);
     const response = await axios.post(
       "http://localhost:3000/api/auth/login",
@@ -13,17 +13,15 @@ const useAuth = () => {
     );
     if (response.status == 200) {
       console.log("Token: ",response.data);
-      const receivedToken = response.data;
-      localStorage.setItem("token", receivedToken)
-      setToken(receivedToken);
+      return response.data
     }
   };
 
-  const signup = async (formData) => {
+  const userSignup = async (formData) => {
     const response = await axios.post("http://localhost:3000/api/auth/signup");
   };
 
-  return { login, signup };
+  return { userLogin, userSignup };
 };
 
 export default useAuth;

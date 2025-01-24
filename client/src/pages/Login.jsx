@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import useAuth from '../hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/AuthContext'
 
 const defaultUser = {
     email:"",
@@ -8,41 +9,25 @@ const defaultUser = {
 }
 
 const Login = () => {
+  const {login} = useContext(AuthContext)
     const navigate = useNavigate()
-    const {login} = useAuth()
+    const {userLogin} = useAuth()
     const [loginUser, setLoginUser] = useState(defaultUser)
 
-    const handleLoginSubmit = (e) => {
+    const handleLoginSubmit = async (e) => {
         e.preventDefault()
-        login(loginUser)
-        navigate("/")
+        const response = await userLogin(loginUser);
+        if(response.token){
+          login(response.token, response.userData);
+          navigate("/")
+        }
 
 
         const handleChange = (e) => {
 
         }
     }
-//   return (
-//     <div>
-//       <form onSubmit={handleLoginSubmit}>
-//         <input
-//         type='text'
-//           onChange={(e) =>
-//             setLoginUser({ ...loginUser, email: e.target.value })
-//           }
-//           placeholder="Email"
-//         />
-//         <input
-//         type="password"
-//           onChange={(e) =>
-//             setLoginUser({ ...loginUser, password: e.target.value })
-//           }
-//           placeholder="Password"
-//         />
-//         <button type='submit'>Login</button>
-//       </form>
-//     </div>
-//   );
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-purple-500 to-indigo-600 flex items-center justify-center">
       <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-md">

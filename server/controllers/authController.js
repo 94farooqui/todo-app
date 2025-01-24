@@ -41,16 +41,19 @@ export const login = async (req, res) => {
       process.env.JWT_SECRET
     );
 
-    return res.status(200).json(token);
+    return res.status(200).json({token, userData: {
+        userId: foundUser._id,
+        fullname: foundUser.fullname,
+        email: foundUser.email,
+      }});
   } catch (error) {
-    console.l;
     console.log(error);
   }
 };
 
 export const getUser = async (req, res) => {
   if (req.user) {
-    console.log(req.user)
+    console.log(req.user);
     return res.status(200).json(req.user);
   } else return res.status(404).json({ error: "User not found" });
 };

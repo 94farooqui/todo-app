@@ -13,7 +13,7 @@ const defaultTask = {
   status: "New",
 };
 
-const TodaysTasks = () => {
+const TasksList = ({filter}) => {
   const [tasks, setTasks] = useState([]);
   const [taskLoading, setTaskLoading] = useState(false);
   const [tasksError, setTasksError] = useState("");
@@ -27,7 +27,7 @@ const TodaysTasks = () => {
     const getTask = async () => {
       console.log("Fetching tasks");
       try {
-        const tasks = await fetchUserTasks();
+        const tasks = await fetchUserTasks(filter);
         if (tasks) {
           console.log(tasks);
           setTasks(tasks);
@@ -39,9 +39,7 @@ const TodaysTasks = () => {
       }
     };
     getTask();
-  }, []);
-
-
+  }, [filter]);
 
   return (
     <div className="w-full">
@@ -69,4 +67,4 @@ const TodaysTasks = () => {
   );
 };
 
-export default TodaysTasks;
+export default TasksList;

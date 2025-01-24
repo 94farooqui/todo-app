@@ -1,19 +1,18 @@
-import { useEffect, useState } from 'react'
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import RootLayout from './layouts/RootLayout'
-import Home from './pages/Home'
-import { tasks } from './data/tasksData'
-import AuthProvider from './context/AuthContext'
-import Login from './pages/Login'
-import LandingPage from './pages/LandingPage'
-import Signup from './pages/Signup'
+import { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import RootLayout from "./layouts/RootLayout";
+import Home from "./pages/Home";
+import { tasks } from "./data/tasksData";
+import AuthProvider from "./context/AuthContext";
+import Login from "./pages/Login";
+import LandingPage from "./pages/LandingPage";
+import Signup from "./pages/Signup";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
-
-
-  useEffect(()=>{
-    localStorage.setItem("tasks", JSON.stringify(tasks))
-  },[])
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, []);
 
   return (
     <>
@@ -21,8 +20,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<RootLayout />}>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/tasks/:userId" element={<Home />} />
+              <Route path="/" element={<Home />} />
             </Route>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
@@ -33,4 +31,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

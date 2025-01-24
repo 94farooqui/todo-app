@@ -1,6 +1,8 @@
 import axios from "axios";
 
 const verifyToken = async (token) => {
+
+ 
   const response = await axios.get(
     "http://localhost:3000/api/auth/verifyUser",
     {
@@ -10,7 +12,7 @@ const verifyToken = async (token) => {
     }
   );
   if (response.status == 200) {
-    console.log(response.data)
+    
     return response.data
   }
 };

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const TaskCard = ({ task, updateTaskStatus }) => {
+const TaskCard = ({ task }) => {
   const optionsRef = useRef(null);
   const [showUpdateStatusOptions, setShowUpdateStatusOptions] = useState(false);
 
