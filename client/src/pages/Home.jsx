@@ -5,17 +5,17 @@ import UserLandingPage from './UserLandingPage';
 import LandingPage from './LandingPage';
 
 const Home = () => {
-  const { user, authLoading } = useContext(AuthContext);
+  const { user, token, authLoading } = useContext(AuthContext);
 
   useEffect(()=>{
-    
+    // console.log(user, token)
   },[])
     if (authLoading) {
       return <p>Loading...</p>;
     }
 
     return (
-      <div className="w-[1200px] mx-auto py-12">
+      <div className="">
         {user ? <UserLandingPage /> : <LandingPage />}
       </div>
     );

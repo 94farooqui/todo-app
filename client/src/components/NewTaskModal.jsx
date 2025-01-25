@@ -27,7 +27,7 @@ const NewTaskModal = ({ setShowNewTaskModal }) => {
   };
 
   return (
-    <div className="absolute top-0 left-0 w-screen h-screen bg-zinc-800/50 flex justify-center items-center">
+    <div className="absolute p-4 sm:p-0 top-0 left-0 w-screen h-screen bg-zinc-800/50 flex justify-center items-center">
       <div className="bg-white w-[600px] p-8 rounded-md">
         <div className="flex w-full justify-between items-center mb-4">
           <h4 className="text-2xl font-bold">Add New Task</h4>

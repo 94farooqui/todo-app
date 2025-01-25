@@ -18,7 +18,11 @@ const useAuth = () => {
   };
 
   const userSignup = async (formData) => {
-    const response = await axios.post("http://localhost:3000/api/auth/signup");
+    const response = await axios.post("http://localhost:3000/api/auth/signup", formData);
+        if (response.status == 200) {
+          console.log("Token: ", response.data);
+          return response.data;
+        }
   };
 
   return { userLogin, userSignup };

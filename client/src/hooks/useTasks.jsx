@@ -1,24 +1,39 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { AuthContext } from '../context/AuthContext'
 
 const serverAddress = "http://localhost:3000"
 
-const token = localStorage.getItem("token")
+//const token = localStorage.getItem("token")
 
 const useTasks = () => {
     const [tasks,setTasks] = useState()
+    const {token} = useContext(AuthContext)
 
     const fetchUserTasks = async (filter) => {
       //console.log("Fetching task from hook")
-      const response = await axios.get(`${serverAddress}/api/tasks?filter=${filter}`, {
-        headers:{
-          Authorization:`Bearer ${token}`
+
+      try{
+        //console.log("Context Token", token)
+      const response = await axios.get(
+        `${serverAddress}/api/tasks?filter=${filter}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
-      })
-      if(response.status == 200){
+      );
+      if (response.status == 200) {
         //console.log(response)
-        return response.data
+        return response.data;
       }
+      else return false
+      }
+      catch(error){
+        console.log("Use Task Error", error)
+        return false
+      }
+
     }
 
     const addTask = async (taskData) => {

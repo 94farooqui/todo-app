@@ -6,19 +6,9 @@ import Home from "../pages/Home";
 import Navbar from "../components/Navbar";
 
 const RootLayout = () => {
-  const navigate = useNavigate();
-
-  // useEffect(() => {
-
-  //   console.log("User in Root Layout", user)
-  //   if (!user) {
-  //     navigate("/");
-  //   }
-  // }, []);
 
   return (
-    <div>
-     
+    <div className={`min-h-screen bg-gradient-to-br from-purple-100 via-blue-100 to-white`}>
       <Outlet />
     </div>
   );

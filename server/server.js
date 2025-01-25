@@ -22,10 +22,10 @@ app.use("/api/tasks", taskRouter)
 app.use("/api/users", userRouter)
 
 app.get("/", (req, res) => {
-    console.log("Request received")
+    //console.log("Request received")
     res.status(200).json({msg:"Hello World"})
 })
 
 app.listen(3000, () => {
-    console.log("server running on port 3000")
+    //console.log("server running on port 3000")
 } )

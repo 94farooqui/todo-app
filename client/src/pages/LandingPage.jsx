@@ -78,7 +78,7 @@ const LandingPage = () => {
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="p-5 bg-black text-center">
+      <footer id="contact" className="p-5 bg-gray-800 text-center">
         <p>
           &copy; {new Date().getFullYear()} TaskMaster. All rights reserved.
         </p>

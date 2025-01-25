@@ -1,13 +1,17 @@
-// src/pages/SignupPage.jsx
-
 import React, { useState } from "react";
+import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
-const SignupPage = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
+const defaultSignup = {
+  name: "",
+  email: "",
+  password: "",
+};
+
+const Signup = () => {
+  const { userSignup } = useAuth();
+  const [formData, setFormData] = useState(defaultSignup);
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,14 +21,18 @@ const SignupPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     // Handle signup logic here
+    const response = await userSignup(formData);
+    if (response) {
+      navigate("/login");
+    }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center">
+    <div className="min-h-screen p-4 sm:p-0 bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center">
       <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
           Sign Up
@@ -42,7 +50,9 @@ const SignupPage = () => {
               id="name"
               name="name"
               value={formData.name}
-              onChange={handleChange}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
               className="w-full mt-2 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
               required
             />
@@ -59,7 +69,9 @@ const SignupPage = () => {
               id="email"
               name="email"
               value={formData.email}
-              onChange={handleChange}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
               className="w-full mt-2 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
               required
             />
@@ -76,7 +88,9 @@ const SignupPage = () => {
               id="password"
               name="password"
               value={formData.password}
-              onChange={handleChange}
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
               className="w-full mt-2 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
               required
             />
@@ -99,4 +113,4 @@ const SignupPage = () => {
   );
 };
 
-export default SignupPage;
+export default Signup;

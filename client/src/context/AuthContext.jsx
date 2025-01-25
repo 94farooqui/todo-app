@@ -31,7 +31,7 @@ const AuthProvider = ({ children }) => {
       getAuthDetails(storedToken);
     } else {
       setAuthLoading(false);
-      console.log("no user");
+      //console.log("no user");
     }
 
     // if (!storedToken) {
@@ -43,8 +43,11 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const login = (token, userData) => {
+    console.log("Data received in Auth Context", token, userData)
     localStorage.setItem("token", token)
+    setToken(token)
     setUser(userData);
+    setAuthLoading(false)
   };
 
   const logout = () => {
@@ -53,7 +56,9 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, authLoading, login, logout }}>
+    <AuthContext.Provider
+      value={{ user, token, authLoading, setAuthLoading, login, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );

@@ -3,7 +3,7 @@ import User from "../models/User.js";
 
 export const getAllTasks = async (req, res) => {
   const { filter } = req.query;
-  console.log("Filter", filter);
+  //console.log("Filter", filter);
   const user = req.user;
   //console.log("User Id",user.userId);
   try {
@@ -33,21 +33,21 @@ export const addOneTask = async (req, res) => {
       }
     }
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     return res.status(500).json({ error: "Server error" });
   }
 };
 
 export const updateOneTask = async (req, res) => {
   const { taskId } = req.params;
-console.log("Task Update request", req.body)
+//console.log("Task Update request", req.body)
   try {
     const task = await Task.findByIdAndUpdate(taskId, req.body, { new: true });
     if(task){
-        console.log(task)
+        //console.log(task)
         return res.status(200).json(task)
     }
-    else console.log("Task not found")
+    
   } catch (error) {
     return res.status(500).json({error:"Server error"})
   }

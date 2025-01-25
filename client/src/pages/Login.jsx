@@ -9,15 +9,17 @@ const defaultUser = {
 }
 
 const Login = () => {
-  const {login} = useContext(AuthContext)
+  const { login, setAuthLoading } = useContext(AuthContext);
     const navigate = useNavigate()
     const {userLogin} = useAuth()
     const [loginUser, setLoginUser] = useState(defaultUser)
 
     const handleLoginSubmit = async (e) => {
         e.preventDefault()
+        setAuthLoading(true)
         const response = await userLogin(loginUser);
         if(response.token){
+          console.log("User login response", response.userData);
           login(response.token, response.userData);
           navigate("/")
         }
@@ -29,7 +31,7 @@ const Login = () => {
     }
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-purple-500 to-indigo-600 flex items-center justify-center">
+    <div className="min-h-screen p-4 sm:p-0 bg-gradient-to-r from-purple-500 to-indigo-600 flex items-center justify-center">
       <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
           Log In

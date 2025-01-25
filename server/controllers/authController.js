@@ -16,7 +16,7 @@ export const signup = async (req, res) => {
 };
 export const login = async (req, res) => {
   const { email, password } = req.body;
-  console.log({ email, password });
+  //console.log({ email, password });
 
   const foundUser = await User.findOne({ email: email });
 
@@ -24,7 +24,7 @@ export const login = async (req, res) => {
     return res.status(404).json({ error: "user not found" });
   }
 
-  console.log("Found user", foundUser);
+  //console.log("Found user", foundUser);
 
   try {
     const passwordVerified = await foundUser.matchPassword(password);
@@ -47,13 +47,13 @@ export const login = async (req, res) => {
         email: foundUser.email,
       }});
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 };
 
 export const getUser = async (req, res) => {
   if (req.user) {
-    console.log(req.user);
+    //console.log(req.user);
     return res.status(200).json(req.user);
   } else return res.status(404).json({ error: "User not found" });
 };
