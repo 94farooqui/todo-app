@@ -9,11 +9,16 @@ import userRouter from './routes/userRoutes.js'
 
 dotenv.config()
 const port = process.env.PORT || 3000;
+const frontend = process.env.FRONTEND_URL
+const corsOptions = {
+    origin: frontend, // Replace with your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
+    credentials: true, // Allow credentials if needed
+  };
 
 const app = express()
-app.use(cors());
+app.use(cors(corsOptions));
 
-app.use(cors());
 app.use(express.json())
 
 connectDB()
