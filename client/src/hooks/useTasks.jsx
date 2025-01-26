@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useContext, useState } from 'react'
 import { AuthContext } from '../context/AuthContext'
 
-const serverAddress = "http://localhost:3000"
+const serverAddress = import.meta.env.VITE_SERVER_ADDRESS
 
 //const token = localStorage.getItem("token")
 

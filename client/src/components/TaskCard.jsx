@@ -34,8 +34,8 @@ const TaskCard = ({ task, taskStatusUpdate }) => {
   return (
     <div className=" w-full md:w-full relative bg-white border border-cyan-100 p-4 rounded-[12px] shadow-md flex flex-col-reverse md:flex-row md:items-center gap-4">
       <div className="flex-1">
-        <p className="font-semibold text-lg text-zinc-700">{task.title}</p>
-        <p className="mt-2 text-sm text-zinc-500">{task.description}</p>
+        <p className="font-semibold text-lg text-blue-500">{task.title}</p>
+        <p className="mt-2 text-sm text-blue-900/70">{task.description}</p>
       </div>
       <button
         onClick={toggleOptions}

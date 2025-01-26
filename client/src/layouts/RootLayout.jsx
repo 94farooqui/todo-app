@@ -1,9 +1,6 @@
-import React, { useContext, useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
-import TaskContextProvider from "../context/TaskContext";
-import Home from "../pages/Home";
-import Navbar from "../components/Navbar";
+import React from "react";
+import { Outlet } from "react-router-dom";
+
 
 const RootLayout = () => {
 

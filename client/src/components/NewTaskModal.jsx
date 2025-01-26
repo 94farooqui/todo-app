@@ -30,7 +30,7 @@ const NewTaskModal = ({ setShowNewTaskModal }) => {
     <div className="absolute p-4 sm:p-0 top-0 left-0 w-screen h-screen bg-zinc-800/50 flex justify-center items-center">
       <div className="bg-white w-[600px] p-8 rounded-md">
         <div className="flex w-full justify-between items-center mb-4">
-          <h4 className="text-2xl font-bold">Add New Task</h4>
+          <div className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">Add New Task</div>
           <button onClick={() => setShowNewTaskModal(false)}>
             <IoClose />
           </button>
@@ -39,7 +39,7 @@ const NewTaskModal = ({ setShowNewTaskModal }) => {
           <div className="mb-4">
             <label
               htmlFor="title"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-blue-500"
             >
               Title
             </label>
@@ -58,7 +58,7 @@ const NewTaskModal = ({ setShowNewTaskModal }) => {
           <div className="mb-4">
             <label
               htmlFor="description"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-blue-500"
             >
               Title
             </label>
@@ -76,7 +76,7 @@ const NewTaskModal = ({ setShowNewTaskModal }) => {
           </div>
           <button
             type="submit"
-            className="px-8 py-2 text-white bg-zinc-900 rounded-md"
+            className="px-8 py-2 text-white bg-gradient-to-r from-blue-500 to-purple-500 rounded-[6px] font-semibold"
           >
             {taskLoading ? "Loading" : "Save"}
           </button>

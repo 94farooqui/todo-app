@@ -31,15 +31,8 @@ const AuthProvider = ({ children }) => {
       getAuthDetails(storedToken);
     } else {
       setAuthLoading(false);
-      //console.log("no user");
     }
 
-    // if (!storedToken) {
-    //   setAuthLoading(false);
-    //   console.log("no user");
-    // } else {
-    //   getAuthDetails(storedToken);
-    // }
   }, []);
 
   const login = (token, userData) => {

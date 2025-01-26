@@ -5,9 +5,7 @@ import Home from "./pages/Home";
 import { tasks } from "./data/tasksData";
 import AuthProvider from "./context/AuthContext";
 import Login from "./pages/Login";
-import LandingPage from "./pages/LandingPage";
 import Signup from "./pages/Signup";
-import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   useEffect(() => {
