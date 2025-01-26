@@ -1,6 +1,7 @@
 // src/pages/LandingPage.jsx
 
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
@@ -11,19 +12,19 @@ const LandingPage = () => {
         <nav>
           <ul className="flex space-x-6">
             <li>
-              <a href="#features" className="hover:text-gray-200">
+              <Link to="#features" className="hover:text-gray-200">
                 Features
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#about" className="hover:text-gray-200">
+              <Link to="#about" className="hover:text-gray-200">
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#contact" className="hover:text-gray-200">
+              <Link to="#contact" className="hover:text-gray-200">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -40,18 +41,18 @@ const LandingPage = () => {
             complete tasks with ease.
           </p>
           <div>
-            <a
-              href="/signup"
+            <Link
+              to="/signup"
               className="px-6 py-3 bg-white text-blue-600 font-bold rounded-lg shadow-lg hover:bg-gray-200"
             >
               Get Started
-            </a>
-            <a
-              href="#features"
+            </Link>
+            <Link
+              to="#features"
               className="ml-4 px-6 py-3 border border-white text-white font-bold rounded-lg hover:bg-white hover:text-blue-600"
             >
               Learn More
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -83,9 +84,9 @@ const LandingPage = () => {
           &copy; {new Date().getFullYear()} TaskMaster. All rights reserved.
         </p>
         <p>
-          <a href="mailto:support@taskmaster.com" className="hover:underline">
+          <Link to="mailto:support@taskmaster.com" className="hover:underline">
             support@taskmaster.com
-          </a>
+          </Link>
         </p>
       </footer>
     </div>
