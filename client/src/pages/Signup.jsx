@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useAuth from "../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const defaultSignup = {
   name: "",
@@ -104,9 +104,9 @@ const Signup = () => {
         </form>
         <p className="text-sm text-center text-gray-600 mt-4">
           Already have an account?{" "}
-          <a href="/login" className="text-green-600 hover:underline">
+          <Link to="/login" className="text-green-600 hover:underline">
             Log In
-          </a>
+          </Link>
         </p>
       </div>
     </div>
