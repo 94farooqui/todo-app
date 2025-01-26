@@ -8,7 +8,7 @@ import taskRouter from './routes/taskRoutes.js'
 import userRouter from './routes/userRoutes.js'
 
 dotenv.config()
-
+const port = process.env.PORT || 3000;
 
 const app = express()
 app.use(cors());
@@ -26,6 +26,6 @@ app.get("/", (req, res) => {
     res.status(200).json({msg:"Hello World"})
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
     //console.log("server running on port 3000")
 } )
