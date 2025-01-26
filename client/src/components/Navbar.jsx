@@ -8,7 +8,7 @@ const Navbar = () => {
     <div className=''>
     <div className="max-w-sm md:max-w-full sm:p-0 bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-md rounded-[6px] sm:rounded-[12px]">
       <div className="w-full sm:max-w-[1200px] sm:mx-auto p-2 sm:p-4 flex items-center justify-between">
-        <h1 className="text-lg sm:text-2xl font-bold text-cyan-50">ToDo App</h1>
+        <h1 className="text-lg sm:text-2xl font-bold text-cyan-50">Task Master</h1>
         <div>
           <button
             onClick={() => logout()}
